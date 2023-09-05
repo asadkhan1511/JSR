@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.font2 {
+  font-family: "Open Sans", sans-serif;
+ 
+}
+.swiper-button-next {
+  display: none;
+}
+.swiper-button-prev {
+  display: none;
+}
+
+.swiper-pagination-bullet {
+  display: none;
+}
