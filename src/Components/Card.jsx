@@ -4,11 +4,13 @@ import {RiDeleteBin6Fill} from "react-icons/ri";
 import {TbEdit} from "react-icons/tb";
 import { Link } from "react-router-dom";
 
-const Card = (data,type) => {
+const Card = (data) => {
 
   const DeleteCard = (id) => {
     let Deleteurl;
-    if(type=="released"){
+    // console.log('h')
+    // console.log(type)
+    if(data.type=="R"){
       Deleteurl = `https://jsr-backend-x7rr.onrender.com/RProject/${id}`;
     }else{
       Deleteurl = `https://jsr-backend-x7rr.onrender.com/Upcoming/${id}`;

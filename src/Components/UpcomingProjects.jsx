@@ -12,6 +12,8 @@ import "../future.css";
 import { Autoplay, Pagination } from "swiper";
 import { useEffect, useState } from "react";
 import SkeletonCard from "./SkeletonCard";
+import {AiOutlineVideoCameraAdd} from "react-icons/ai"
+import { Link } from "react-router-dom";
 
 const UpcomingProjects = () => {
   const [array, setArray] = useState([]);
@@ -40,11 +42,16 @@ const UpcomingProjects = () => {
       <div className="">
         <div className="text-center pt-10 lg:pt-28 z-30 tracking-[2px]  lg:tracking-[6px]  ">
           <h1 className=" text-2xl md:text-lg lg:text-xl pb-2 lg:pb-5">
-            JSR PRODUCTION HOUSE
+            JSR PRODUCTION HOUSE 
           </h1>
+          
           <h2 className="text-4xl md:text-4xl lg:text-7xl pb-10 lg:pb-20">
             UPCOMING PROJECTS
+            <Link to={`/add/upcoming`}>
+              <AiOutlineVideoCameraAdd size={38} color="blue" className="inline-block"/>
+            </Link>
           </h2>
+
         </div>
       </div>
       <Swiper
@@ -87,7 +94,7 @@ const UpcomingProjects = () => {
           : array.map((item, index) => {
               return (
                 <SwiperSlide key={index}>
-                  <Card data={item} type={"upcoming"} />
+                  <Card data={item} type='U'/>
                 </SwiperSlide>
               );
             })}

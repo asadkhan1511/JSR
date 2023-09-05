@@ -9,6 +9,7 @@ import Member from "./Pages/Member";
 import { useEffect } from "react";
 import Metrics from "./Pages/Metrics";
 import UpdateCard from "./Pages/UpdateCard";
+import AddCard from "./Pages/AddCard";
 // import { AnimatePresence } from "framer-motion/dist/framer-motion";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/rentals" element={<Rentals />} />
         <Route path="/metrics" element={<Metrics />} />
         <Route path="/update/:id" element={<UpdateCard />} />
+        <Route path="/add/:key" element={<AddCard />} />
       </Routes>
       {/* </AnimatePresence> */}
     </>

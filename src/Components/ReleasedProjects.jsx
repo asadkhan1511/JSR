@@ -13,6 +13,8 @@ import { Pagination, Autoplay } from "swiper";
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import SkeletonCard from "./SkeletonCard";
+import { AiOutlineVideoCameraAdd } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const ReleasedProjects = () => {
   const [array, setArray] = useState([]);
@@ -41,6 +43,9 @@ const ReleasedProjects = () => {
       <div>
         <div className="text-center pt-20 lg:pt-28 text-4xl lg:text-6xl tracking-[2px]  lg:tracking-[6px] pb-10 lg:pb-20 ">
           RELEASED PROJECTS
+          <Link to={`/add/release`}>
+            <AiOutlineVideoCameraAdd size={38} color="blue" className="inline-block"/>
+          </Link>
         </div>
         {/* <div className="md:flex hidden justify-center gap-5 pt-20 flex-wrap"></div> */}
       </div>
@@ -85,7 +90,7 @@ const ReleasedProjects = () => {
           : array.map((item, index) => {
               return (
                 <SwiperSlide key={index}>
-                  <Card data={item} type={"released"}/>
+                  <Card data={item} type="R"/>
                 </SwiperSlide>
               );
             })}
