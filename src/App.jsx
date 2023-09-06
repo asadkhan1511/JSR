@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import Metrics from "./Pages/Metrics";
 import UpdateCard from "./Pages/UpdateCard";
 import AddCard from "./Pages/AddCard";
+import AddService from "./Pages/AddService";
 // import { AnimatePresence } from "framer-motion/dist/framer-motion";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/:id" element={<AddService />} />
         <Route path="/member" element={<Member />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/rentals" element={<Rentals />} />
