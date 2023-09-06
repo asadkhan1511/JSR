@@ -1,6 +1,7 @@
 import React from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { RiFileAddFill } from "react-icons/ri";
 Aos.init({
   duration: 1200,
 });
@@ -24,6 +25,11 @@ const Service = () => {
               data-aos="fade-up"
             >
               PRE-PRODUCTION
+              <RiFileAddFill
+                onClick={() => settoggle(false)}
+                className="inline-block"
+                color="blue"
+              />
             </h1>
             <p className="font2 opacity-40 pb-4">
               Pre-production is an essential part of the filmmaking process at
@@ -32,20 +38,26 @@ const Service = () => {
               ensure its success.
             </p>
             <ul className="font2 flex flex-col gap-2">
-              <li><h1>Story and Scriptwriting</h1></li>
+              <li>
+                <h1>Story and Scriptwriting</h1>
+              </li>
               <li className="opacity-40">
                 Have a story concept but are unsure about how to present it on
                 screen? Don’t worry, we have your back. With our storytelling,
                 your story will make people all the emotions you wanna portray
                 and jump out of their seats with excitement.
               </li>
-              <li><h1>Screenplay</h1></li>
+              <li>
+                <h1>Screenplay</h1>
+              </li>
               <li className="opacity-40">
                 Professional screenwriters will work with you every step of the
                 way, from dialogue, scenes, and sequences to execution strategy,
                 until your vision becomes a reality!
               </li>
-              <li><h1>Storyboarding</h1></li>
+              <li>
+                <h1>Storyboarding</h1>
+              </li>
               <li className="opacity-40">
                 Get a close look at your work through a storyboard made for your
                 script, which includes a shot-by-shot sequence, placements, and
@@ -69,19 +81,25 @@ const Service = () => {
               coordination.
             </p>
             <ul className="font2 flex flex-col gap-2">
-              <li><h1>Filming</h1></li>
+              <li>
+                <h1>Filming</h1>
+              </li>
               <li className="opacity-40">
                 We specialize in producing and directing award-winning films.
                 Our outstanding team will work and bring your story to life in
                 the most beautiful way!
               </li>
-              <li><h1>Commercial Advertisement</h1></li>
+              <li>
+                <h1>Commercial Advertisement</h1>
+              </li>
               <li className="opacity-40">
                 With us, you will receive the most effective and visually
                 appealing advertisements that represent your brand and its goals
                 to the maximum extent—ads that are powerful and unforgettable!
               </li>
-              <li><h1>Music Album</h1></li>
+              <li>
+                <h1>Music Album</h1>
+              </li>
               <li className="opacity-40">
                 If you are looking for a highly professional yet affordable
                 voice recording studio, look no further. We’re here to help you
@@ -120,20 +138,26 @@ const Service = () => {
               ensure its success.
             </p>
             <ul className="font2 flex flex-col gap-2">
-              <li><h1>Story and Scriptwriting</h1></li>
+              <li>
+                <h1>Story and Scriptwriting</h1>
+              </li>
               <li className="opacity-40">
                 Have a story concept but are unsure about how to present it on
                 screen? Don’t worry, we have your back. With our storytelling,
                 your story will make people all the emotions you wanna portray
                 and jump out of their seats with excitement.
               </li>
-              <li><h1>Screenplay</h1></li>
+              <li>
+                <h1>Screenplay</h1>
+              </li>
               <li className="opacity-40">
                 Professional screenwriters will work with you every step of the
                 way, from dialogue, scenes, and sequences to execution strategy,
                 until your vision becomes a reality!
               </li>
-              <li><h1>Storyboarding</h1></li>
+              <li>
+                <h1>Storyboarding</h1>
+              </li>
               <li className="opacity-40">
                 Get a close look at your work through a storyboard made for your
                 script, which includes a shot-by-shot sequence, placements, and
@@ -158,7 +182,9 @@ const Service = () => {
               realms, we bring your visions to life like never before.
             </p>
             <ul className="font2 flex flex-col gap-2">
-              <li><h1>Virtual Sets and Environments</h1></li>
+              <li>
+                <h1>Virtual Sets and Environments</h1>
+              </li>
               <li className="opacity-40">
                 Our skilled team of artists and technicians design and create
                 virtual sets and environments that perfectly complement your
@@ -166,13 +192,17 @@ const Service = () => {
                 landscapes, or fantasy worlds, we can visualize
                 and build it all.
               </li>
-              <li><h1>Virtual Cameras and Cinematography</h1></li>
+              <li>
+                <h1>Virtual Cameras and Cinematography</h1>
+              </li>
               <li className="opacity-40">
                 Our team of experienced cinematographers utilizes virtual
                 cameras to capture dynamic shots within the virtual environment,
                 enhancing the visual storytelling of your project.
               </li>
-              <li><h1>Game Engine Technology</h1></li>
+              <li>
+                <h1>Game Engine Technology</h1>
+              </li>
               <li className="opacity-40">
                 We utilize powerful game engine technology to create dynamic and
                 immersive virtual worlds, resulting in higher fidelity and more
@@ -209,7 +239,9 @@ const Service = () => {
               audience and achieve success.
             </p>
             <ul className="font2 flex flex-col gap-2">
-              <li><h1>Market Research and Strategy</h1></li>
+              <li>
+                <h1>Market Research and Strategy</h1>
+              </li>
               <li className="opacity-40">
                 Our first step is to conduct in-depth market research to
                 understand your project's potential audience and the competitive
@@ -217,14 +249,18 @@ const Service = () => {
                 marketing strategy to maximize your project's
                 visibility and impact.
               </li>
-              <li><h1>Public Relations (PR)</h1></li>
+              <li>
+                <h1>Public Relations (PR)</h1>
+              </li>
               <li className="opacity-40">
                 Our PR experts work diligently to build positive media coverage
                 for your productions. We engage with journalists, bloggers, and
                 influencers to ensure your projects get the
                 attention they deserve.
               </li>
-              <li><h1>Distribution Strategies</h1></li>
+              <li>
+                <h1>Distribution Strategies</h1>
+              </li>
               <li className="opacity-40">
                 We develop customized distribution plans to ensure your
                 productions are accessible to the right distribution channels,

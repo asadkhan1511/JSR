@@ -1,17 +1,81 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { RiFileAddFill } from "react-icons/ri";
+
 const OurChannel = () => {
+  var [para, setPara] = useState([]);
+  const [toggle, settoggle] = useState(true);
+  async function get() {
+    try {
+      const { data } = await axios.get(
+        "https://jsr-backend-x7rr.onrender.com/OurChannel"
+      );
+      console.log(data.para);
+      setPara(data.para);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  useEffect(() => {
+    get();
+  }, []);
+
+  function handle(e) {
+    para = e.target.value;
+    setPara(para);
+  }
+
+  async function handleupdate() {
+    try {
+      settoggle(!toggle);
+      console.log(para);
+      let data1={para:para}
+      const { data } = await axios.put(
+        "http://localhost:8000/OurChannel/",
+        {para:para}
+      );
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   return (
     <div className="py-20 flex flex-col text-center  ">
       <h1 className="text-5xl md:text-5xl lg:text-7xl  tracking-[2px]  lg:tracking-[6px]  py-10">
         OUR CHANNELS
+        <RiFileAddFill
+          onClick={()=>settoggle(false)}
+          className="inline-block"
+          color="blue"
+        />
       </h1>
-      <p className="font2 py-2  lg:py-1 lg:mt-0 w-[320px] md:w-[550px] text-gray-900 lg:w-[800px] lg:text-[14px] tracking-wide leading-7 " >
+      {/* <p className="" >
         JSR Production House offers a variety of production services and have
         YouTube channels, JSR Production House, JSR Record Label and JSR Records
         Regional. Our channel is packed with diverse recreational content that
         highlights local and national talent in movies, music videos, and TV
         shows.
-      </p>
+      </p> */}
+      <textarea
+      rows={3}
+
+        type="text"
+        readOnly={toggle}
+        className=" font2 py-2 text-center  lg:py-1 lg:mt-0  w-[320px] md:w-[550px]
+       text-gray-900 lg:w-[800px] lg:text-[14px] tracking-wide leading-7 "
+        value={para}
+        onChange={(e) => handle(e)}
+      />
+      {!toggle ? (
+        <button
+          className=" border border-black p-2 font-sans text-1xl bg-blue-400 text-black rounded-lg mt-5 font-bold "
+          onClick={handleupdate}
+        >
+          Update
+        </button>
+      ) : null}
+
       <div className=" pt-10  flex  justify-around">
         <div className="cursor-pointer flex gap-4 lg:gap-36 items-center ">
           <div className="hover:scale-125 duration-200">
