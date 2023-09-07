@@ -43,20 +43,25 @@ get();
               className=" text-2xl lg:text-5xl pt-5 lg:pb-5"
               data-aos="fade-up"
             >
+              
               {a[0]?.mainHeading}
               
             </h1>
-            <Link to={`/Services/${a[0]?._id}`} >
-              <RiFileAddFill
-                className="inline-block relative z-50  "
+           
+            <Link to={`/Services/${a[0]?._id}`} className=" bg-blue-800 ps-5 pr-5 text-black text-3xl " >
+              {/* <RiFileAddFill
+                className="inline-block  "
                 color="blue"
                 size={36}
-              /></Link>
-            
+              /> */}
+              +
+              </Link>
             <p className="font2 opacity-40 pb-4">
             {a[0]?.desc}
             </p>
+            
             <ul className="font2 flex flex-col gap-2">
+            
               <li>
                 <h1>{a[0]?.subHeading1}</h1>
               </li>
