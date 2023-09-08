@@ -31,7 +31,7 @@ const OurChannel = () => {
       console.log(para);
       let data1={para:para}
       const { data } = await axios.put(
-        "http://localhost:8000/OurChannel/",
+        "https://jsr-backend-x7rr.onrender.com/OurChannel/",
         {para:para}
       );
       console.log(data);

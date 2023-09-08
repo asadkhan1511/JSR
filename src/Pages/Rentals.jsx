@@ -4,18 +4,21 @@ import FooterNav from "../Components/FooterNav";
 import Rental from "../Components/Rental";
 import { BsTwitter } from "react-icons/bs";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from "react-responsive-carousel";
 import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
+import { RiFileAddFill } from "react-icons/ri";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 
 import "../released.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 const Rentals = () => {
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
@@ -23,6 +26,7 @@ const Rentals = () => {
   const [email, setEmail] = useState("");
   const [success, setSuccess] = useState(false);
   const [warning, setWarning] = useState(false);
+  const [banner, setBanner] = useState({});
 
   const postMessage = async () => {
     try {
@@ -68,9 +72,32 @@ const Rentals = () => {
     setSuccess(false);
     setWarning(false);
   }, []);
+
+  async function get() {
+    try {
+      const { data } = await axios.get("https://jsr-backend-x7rr.onrender.com/Banner/rentals");
+      console.log(data[0]);
+      setBanner(data[0]);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  useEffect(() => {
+    get();
+  }, []);
+  async function handle(index) {
+    banner.img.splice(index, 1);
+    try {
+      await axios.delete("https://jsr-backend-x7rr.onrender.com/Banner/rentals", {
+        data: banner,
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
   return (
     <>
-      <div className="fixed top-[320px] lg:top-[260px] right-0 h-72 w-10 items-center flex flex-col gap-10 justify-center bg-gray-600 opacity-75 z-50 rounded-tl-md rounded-bl-md    ">
+      <div className="fixed top-[320px] lg:top-[260px] right-0 h-72 w-10 items-center flex flex-col gap-10 justify-center bg-gray-600 opacity-75 z-20 rounded-tl-md rounded-bl-md    ">
         <a href="https://www.facebook.com/JSRProductionhouse" target="_blank">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
@@ -88,7 +115,10 @@ const Rentals = () => {
             className="w-7 h-7 hover:scale-125  duration-200"
           />
         </a>
-        <a href="https://www.youtube.com/@jsrproductionhouse9127" target="_blank">
+        <a
+          href="https://www.youtube.com/@jsrproductionhouse9127"
+          target="_blank"
+        >
           <img
             src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
             alt=""
@@ -97,11 +127,23 @@ const Rentals = () => {
         </a>
         <a href="https://twitter.com/house_jsr?lang=en">
           {/* <BsTwitter className="w-8 h-8 text-blue-500 hover:scale-125  duration-200" /> */}
-          <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1.5em"
+            viewBox="0 0 512 512"
+          >
+            <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+          </svg>
         </a>
       </div>
       <div className="">
-        <div className="bg-transparent absolute z-50 inset-1  ">
+        <div className="bg-transparent absolute inset-1  ">
+        <Link
+            to={`/Banner/rentals`}
+            className=" flex justify-center relative z-50 bg-black "
+          >
+            <RiFileAddFill size={38} color="blue" />
+          </Link>
           <Navbar
             navBgColor={"bg-white"}
             absolute={" absolute "}
@@ -113,82 +155,36 @@ const Rentals = () => {
             </h1>
           </div>
         </div>
-           <Carousel 
-          
-           showThumbs={false}
-           showArrows={false}
-           showIndicators={false}
-           infiniteLoop={true}
-           autoPlay={true}
-           stopOnHover={false}
-           interval={4000}
-           transitionTime={2000}
-           animationHandler="fade"
-           showStatus={false}
-           
-           >
-                <div>
-                    <img src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691130844/RENTALS_lnemlc.png" className=" " />
-                </div>
-                <div>
-                    <img src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691130582/TEAM_l5vyw0.png" className=" "  />
-                    
-                </div>
-                <div>
-                    <img src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691131047/EXTRA._gumksl.png" className=" "  />
-                    
-                </div>
-            </Carousel>
-        {/* <Swiper
-          spaceBetween={30}
-          centeredSlides={true}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper hidden lg:flex "
+        <Carousel
+          showThumbs={false}
+          showArrows={false}
+          showIndicators={false}
+          infiniteLoop={true}
+          autoPlay={true}
+          stopOnHover={false}
+          interval={4000}
+          transitionTime={2000}
+          animationHandler="fade"
+          showStatus={false}
         >
-          <SwiperSlide>
-            <div className="flex  justify-center w-full">
-              <img
-                src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691130844/RENTALS_lnemlc.png"
-                // src="https://pelicula.qodeinteractive.com/wp-content/uploads/2020/03/h4-title-image.jpg"
-                alt=""
-                className="h-[400px] lg:h-[500px] w-full object-cover"
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex  justify-center w-full">
-              <img
-                src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691130844/RENTALS_lnemlc.png"
-                // src="https://pelicula.qodeinteractive.com/wp-content/uploads/2020/03/h4-title-image.jpg"
-                alt=""
-                className="h-[400px] lg:h-[500px] w-full object-cover"
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex  justify-center w-full">
-              <img
-                src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691130844/RENTALS_lnemlc.png"
-                // src="https://pelicula.qodeinteractive.com/wp-content/uploads/2020/03/h4-title-image.jpg"
-                alt=""
-                className="h-[400px] lg:h-[500px] w-full object-cover"
-              />
-            </div>
-          </SwiperSlide>
-        </Swiper> */}
-        {/* <img
-          src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691130844/RENTALS_lnemlc.png"
-          alt=""
-          className="lg:hidden h-[400px] lg:h-[500px] w-full object-cover"
-        /> */}
+           {Array.isArray(banner?.img) &&
+            banner.img.map((value, index) => (
+              <>
+          <div key={index}>
+            <img
+              src={value}
+              className=" "
+            />
+            <button
+                      className=" bottom-5 absolute  left-[47%] cursor-pointer   bg-red-800 text-black text-2xl p-4 "
+                      onClick={() => handle(index)}
+                    >
+                      Delete
+                    </button>
+          </div>
+          </>
+        ))}
+        </Carousel>
       </div>
       <div className="bg-black  ">
         <ul className="flex flex-col  items-center w-full  px-4 lg:px-12 py-0 lg:py-20">
@@ -207,38 +203,6 @@ const Rentals = () => {
             <div className="w-[300px] lg:w-[450px] p-5 lg:pl-10 lg:p-2 text-center">
               FOR PRICE RELATED QUERIES LEAVE US A MESSAGE!
             </div>
-            {/* <div className="flex gap-8 w-60  pt-2 lg:pt-8">
-              <a
-                href="https://www.facebook.com/JSRProductionhouse"
-                target="_blank"
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
-                  alt=""
-                  className="w-8 h-8 hover:scale-125 duration-200"
-                />
-              </a>
-              <a
-                href="https://www.instagram.com/jsrproductionhouse/?igshid=YmMyMTA2M2Y%3D"
-                target="_blank"
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/1025px-Instagram-Icon.png"
-                  alt=""
-                  className="w-8 h-8 hover:scale-125  duration-200"
-                />
-              </a>
-              <a href="https://www.youtube.com/@jsrproductionhouse9127" target="_blank">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
-                  alt=""
-                  className="w-8 h-8 hover:scale-125  duration-200"
-                />
-              </a>
-              <a href="">
-                <BsTwitter className="w-8 h-8 text-blue-500 hover:scale-125  duration-200" />
-              </a>
-            </div> */}
           </div>
         </>
         <>

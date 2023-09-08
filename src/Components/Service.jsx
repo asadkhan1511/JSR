@@ -48,7 +48,7 @@ get();
               
             </h1>
            
-            <Link to={`/Services/${a[0]?._id}`} className=" bg-blue-800 ps-5 pr-5 text-black text-3xl " >
+            <Link to={`/Services/${a[0]?._id}`} className="  bg-blue-800 ps-5 pr-5 text-black text-3xl " >
               {/* <RiFileAddFill
                 className="inline-block  "
                 color="blue"

@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import Navbar from "../Components/Navbar";
 // import Service from "../Components/Service";
 import FooterNav from "../Components/FooterNav";
 import Team from "../Components/Team";
+import { RiFileAddFill } from "react-icons/ri";
 import { BsTwitter } from "react-icons/bs";
+
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -16,14 +18,40 @@ import "../released.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Member = () => {
+  const [banner, setBanner] = useState({});
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
+
+  async function get() {
+    try {
+      const { data } = await axios.get("https://jsr-backend-x7rr.onrender.com/Banner/members");
+      console.log(data[0]);
+      setBanner(data[0]);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  useEffect(() => {
+    get();
+  }, []);
+  async function handle(index) {
+    banner.img.splice(index, 1);
+    try {
+      await axios.delete("https://jsr-backend-x7rr.onrender.com/Banner/members", {
+        data: banner,
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
   return (
     <>
-      <div className="fixed top-[320px] lg:top-[260px] right-0 h-72 w-10 items-center flex flex-col gap-10 justify-center bg-gray-600 opacity-75 z-50 rounded-tl-md rounded-bl-md    ">
+    <div className="fixed top-[320px] lg:top-[260px] right-0 h-72 w-10 items-center flex flex-col gap-10 justify-center bg-gray-600 opacity-75 z-20 rounded-tl-md rounded-bl-md    ">
         <a href="https://www.facebook.com/JSRProductionhouse" target="_blank">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
@@ -41,7 +69,10 @@ const Member = () => {
             className="w-7 h-7 hover:scale-125  duration-200"
           />
         </a>
-        <a href="https://www.youtube.com/@jsrproductionhouse9127" target="_blank">
+        <a
+          href="https://www.youtube.com/@jsrproductionhouse9127"
+          target="_blank"
+        >
           <img
             src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
             alt=""
@@ -50,23 +81,35 @@ const Member = () => {
         </a>
         <a href="https://twitter.com/house_jsr?lang=en">
           {/* <BsTwitter className="w-8 h-8 text-blue-500 hover:scale-125  duration-200" /> */}
-          <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1.5em"
+            viewBox="0 0 512 512"
+          >
+            <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+          </svg>
         </a>
       </div>
       <div className="">
-        <div className="bg-transparent absolute z-50 inset-1  ">
+        <div className="bg-transparent absolute  inset-1">
+          <Link
+            to={`/Banner/members`}
+            className=" flex justify-center relative z-50 bg-black "
+          >
+            <RiFileAddFill size={38} color="blue" />
+          </Link>
+
           <Navbar
             navBgColor={"bg-white"}
             absolute={" absolute "}
             bar={"text-white"}
           />
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center relative top-[-15%] z-50 items-center">
             <h1 className="text-7xl text-white tracking-wider absolute top-44 lg:top-52">
-              TEAM
+              Teams
             </h1>
           </div>
         </div>
-
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -79,38 +122,29 @@ const Member = () => {
           }}
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper hidden lg:flex"
+          className="mySwiper hidden lg:flex "
         >
-          <SwiperSlide>
-            <div className=" flex justify-center w-full">
-              <img
-                src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691130582/TEAM_l5vyw0.png"
-                // src="https://pelicula.qodeinteractive.com/wp-content/uploads/2020/03/h4-title-image.jpg"
-                alt=""
-                className="h-[400px] lg:h-[500px] w-full object-cover"
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex  justify-center w-full">
-              <img
-                src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691130582/TEAM_l5vyw0.png"
-                // src="https://pelicula.qodeinteractive.com/wp-content/uploads/2020/03/h4-title-image.jpg"
-                alt=""
-                className="h-[400px] lg:h-[500px] w-full object-cover"
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex  justify-center w-full">
-              <img
-                src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691130582/TEAM_l5vyw0.png"
-                // src="https://pelicula.qodeinteractive.com/wp-content/uploads/2020/03/h4-title-image.jpg"
-                alt=""
-                className="h-[400px] lg:h-[500px] w-full object-cover"
-              />
-            </div>
-          </SwiperSlide>
+          {Array.isArray(banner?.img) &&
+            banner.img.map((value, index) => (
+              <>
+                <SwiperSlide key={index} className=" relative z-50">
+                  <div className=" w-full ">
+                    <img
+                      src={value}
+                      alt=""
+                      className="h-[400px] lg:h-[500px] w-full object-cover"
+                    />
+                    <button
+                      className=" bottom-5 absolute  left-[47%] cursor-pointer   bg-red-800 text-black text-2xl p-4 "
+                      onClick={() => handle(index)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </SwiperSlide>
+              </>
+            ))}{" "}
+          not working
         </Swiper>
         <div className="flex lg:hidden justify-center w-full">
           <img

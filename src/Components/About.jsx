@@ -30,7 +30,7 @@ async function handleupdate()
   try{
     settoggle(!toggle);
 console.log(para);
- const {data}=await axios.put("http://localhost:8000/AParagraph/line",para);
+ const {data}=await axios.put("https://jsr-backend-x7rr.onrender.com/AParagraph/line",para);
   }
   catch(e)
   {
