@@ -14,28 +14,12 @@ import AddService from "./Pages/AddService";
 import AddBanner from "./Pages/AddBannner";
 import { useAuth0 } from "@auth0/auth0-react";
 import Login from './Pages/Login';
+
 // import { AnimatePresence } from "framer-motion/dist/framer-motion";
 
 function App() {
-  const { loginWithRedirect,isAuthenticated } = useAuth0();
-  async function updateviews(){
-    try{
-      const res=await axios.post("https://jsr-backend-x7rr.onrender.com/Views")
-      console.log(res) }
-          catch(e)
-          {console.log(e)    }
-  }
+  const { isAuthenticated } = useAuth0();
 
-  // useEffect(()=>{
-  //   if(!isAuthenticated)
-  //   loginWithRedirect()
-  // },[])
-  
-  
-  useEffect(()=>{
-    updateviews()
-  },[])
- 
 
   return (
     <>
