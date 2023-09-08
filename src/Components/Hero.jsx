@@ -18,7 +18,6 @@ const Hero = () => {
   const [array, setArray] = useState([]);
   const [msg, setMsg] = useState(false);
   const [refresh, setRefresh] = useState(false);
-  const [vid, setVid] = useState("");
 
   const deleteVideo = async (id) => {
     await axios.delete(`https://jsr-backend-x7rr.onrender.com/Video/${id}`);
@@ -31,12 +30,9 @@ const Hero = () => {
 
   const handleUploadedImage = async (imageUrl, thumbnailUrl) => {
     console.log(imageUrl)
-    setVid(imageUrl);
-    console.log(vid)
     try {
-      console.log("zxcvbnm     ",vid)
       const response = await axios.post('https://jsr-backend-x7rr.onrender.com/Video/', {
-        link: vid
+        link: imageUrl
       });
       // console.log('Data:', response.data);
     } catch (error) {
