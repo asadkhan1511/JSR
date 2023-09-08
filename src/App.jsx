@@ -13,6 +13,7 @@ import AddCard from "./Pages/AddCard";
 import AddService from "./Pages/AddService";
 import AddBanner from "./Pages/AddBannner";
 import { useAuth0 } from "@auth0/auth0-react";
+import Login from './Pages/Login';
 // import { AnimatePresence } from "framer-motion/dist/framer-motion";
 
 function App() {
@@ -25,9 +26,12 @@ function App() {
           {console.log(e)    }
   }
 
-  window.addEventListener("load",()=>{
-    loginWithRedirect()
-  })
+  // useEffect(()=>{
+  //   if(!isAuthenticated)
+  //   loginWithRedirect()
+  // },[])
+  
+  
   useEffect(()=>{
     updateviews()
   },[])
@@ -37,8 +41,8 @@ function App() {
     <>
 
       {/* <AnimatePresence> */}
-      {isAuthenticated && <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
+       <Routes location={location} key={location.pathname}>
+       {!isAuthenticated?<Route path="*" element={<Login/>} /> :<><Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/Banner" element={<AddBanner />} />
         <Route path="/Banner/:type" element={<AddBanner />} />
@@ -48,8 +52,8 @@ function App() {
         <Route path="/rentals" element={<Rentals />} />
         <Route path="/metrics" element={<Metrics />} />
         <Route path="/update/:id" element={<UpdateCard />} />
-        <Route path="/add/:key" element={<AddCard />} />
-      </Routes>}
+        <Route path="/add/:key" element={<AddCard />} /></>}
+      </Routes>
       {/* </AnimatePresence> */}
     </>
   );

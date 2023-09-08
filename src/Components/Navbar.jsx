@@ -3,6 +3,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { HiBars2 } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import { BsInstagram } from "react-icons/bs";
+import { useAuth0 } from "@auth0/auth0-react";
 import {
   Drawer,
   Button,
@@ -16,7 +17,7 @@ const Navbar = ({ navColor, navBgColor, absolute, bar }) => {
   const [openRight, setOpenRight] = React.useState(false);
 
   const DrawerRight = () => setOpenRight(!openRight);
-
+  const {logout,isAuthenticated } = useAuth0();
   return (
     <>
       {/* mobile nav */}
@@ -117,6 +118,9 @@ const Navbar = ({ navColor, navBgColor, absolute, bar }) => {
                   METRICS
                 </li>
               </Link>
+              <li>
+              {isAuthenticated&&<button className="text-2xl font-2 bg-blue-800 text-white ps-1 pr-1 rounded-md hover:bg-black   " onClick={()=> logout()}>Logout</button>}
+              </li>
               {/* <li onClick={DrawerRight}>
                 <HiBars2 className="h-10 w-14 -mt-2 hover:scale-125 hover:opacity-50  duration-200" />
               </li> */}
