@@ -37,7 +37,7 @@ const AddBanner = () => {
     // console.log(a);
     const apiURL = `https://jsr-backend-x7rr.onrender.com/Banner/${type}`;
     axios
-      .post(apiURL, a)
+      .put(apiURL, a)
       .then(() => {
       navigate(`/${type}`);
       })
