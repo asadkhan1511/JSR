@@ -212,12 +212,12 @@ const Rentals = () => {
                       alt=""
                       className="h-[400px] lg:h-[500px] w-full object-cover"
                     />
-                    <button
+                    {/* <button
                       className=" bottom-5 absolute  left-[47%] cursor-pointer   bg-red-800 text-black text-2xl p-4 "
                       onClick={() => handle(index)}
                     >
                       Delete
-                    </button>
+                    </button> */}
                   </div>
                 </SwiperSlide>
               </>
