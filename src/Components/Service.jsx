@@ -16,6 +16,7 @@ const Service = () => {
       try{
 
           const {data}=await axios.get("https://jsr-backend-x7rr.onrender.com/Service")
+          console.log(data)
           setA(data);
       }
       catch(e)
@@ -34,7 +35,7 @@ get();
           data-aos="fade-up"
         >
           <img
-            src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691129330/what-is-pre-production-in-film-1920x1080_bupcxj.jpg"
+            src={a[0]?.img}
             alt=""
             className="w-[320px]  md:w-[600px] lg:w-[430px] lg:h-[400px] xl:w-[650px] xl:h-[420px]"
           />
@@ -122,7 +123,7 @@ get();
             </ul>
           </div>
           <img
-            src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691129657/WhatsApp_Image_2023-08-01_at_16.25.27_ujalak.jpg"
+            src={a[1]?.img}
             alt=""
             className="w-[320px] md:w-[600px] lg:w-[430px] lg:h-[400px] xl:w-[650px] xl:h-[420px] lg:ml-16 xl:ml-20 "
             data-aos="fade-up"
@@ -132,7 +133,7 @@ get();
       <div className="bg-black p-5 md:p-12 px-6 h-full w-[100%] text-white ">
         <div className="flex flex-col items-center lg:flex-row pb-10 lg:pb-40">
           <img
-            src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691129766/video-post-production-1982x1114-2_uaakdt.jpg"
+            src={a[2]?.img}
             alt=""
             className="w-[320px] md:w-[600px] lg:w-[430px] lg:h-[400px] xl:w-[650px] xl:h-[420px]"
             data-aos="fade-up"
@@ -213,7 +214,7 @@ get();
             </ul>
           </div>
           <img
-            src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691060860/gfsxgfs_ipg5pm.jpg"
+           src={a[3]?.img}
             alt=""
             className="w-[320px] md:w-[600px] lg:w-[430px] lg:h-[400px] xl:w-[650px] xl:h-[420px] lg:ml-16 xl:ml-20  "
             data-aos="fade-up"
@@ -223,7 +224,7 @@ get();
       <div className="bg-black p-5 md:p-12 px-6 h-full w-[100%] text-white ">
         <div className="flex flex-col items-center lg:flex-row pb-10 lg:pb-40">
           <img
-            src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691130223/ArcLight_Cinemas_Sherman_Oaks_StoryWall_Digital_Posters_mawqdh.jpg"
+           src={a[4]?.img}
             alt=""
             className="w-[320px] md:w-[600px] lg:w-[430px] lg:h-[400px] xl:w-[650px] xl:h-[420px]"
             data-aos="fade-up"
