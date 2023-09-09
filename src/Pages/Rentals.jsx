@@ -149,15 +149,15 @@ const Rentals = () => {
             absolute={" absolute "}
             bar={"text-white"}
           />
-          <div className="flex justify-center items-center">
+          {/* <div className="flex justify-center items-center">
             <h1 className=" text-4xl  md:text-7xl text-white tracking-wider  absolute sm:top-32 md:top-44 lg:top-48">
               RENTALS
             </h1>
-          </div>
+          </div> */}
         </div>
         <div className="flex justify-center relative top-[-15%] z-50 items-center">
             <h1 className="text-7xl text-white tracking-wider absolute top-44 lg:top-52">
-              Teams
+              Rentals
             </h1>
           </div>
         {/* <Carousel
