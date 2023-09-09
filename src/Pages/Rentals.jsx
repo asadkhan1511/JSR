@@ -89,7 +89,7 @@ const Rentals = () => {
     banner.img.splice(index, 1);
     try {
       await axios.delete("https://jsr-backend-x7rr.onrender.com/Banner/rentals", {
-        data: banner,
+        img: banner,
       });
     } catch (e) {
       console.log(e);
