@@ -155,7 +155,7 @@ const Rentals = () => {
             </h1>
           </div>
         </div>
-        <Carousel
+        {/* <Carousel
           showThumbs={false}
           showArrows={false}
           showIndicators={false}
@@ -184,7 +184,43 @@ const Rentals = () => {
           </div>
           </>
         ))}
-        </Carousel>
+        </Carousel> */}
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper hidden lg:flex "
+        >
+          {Array.isArray(banner?.img) &&
+            banner.img.map((value, index) => (
+              <>
+                <SwiperSlide key={index} className=" relative z-50">
+                  <div className=" w-full ">
+                    <img
+                      src={value}
+                      alt=""
+                      className="h-[400px] lg:h-[500px] w-full object-cover"
+                    />
+                    <button
+                      className=" bottom-5 absolute  left-[47%] cursor-pointer   bg-red-800 text-black text-2xl p-4 "
+                      onClick={() => handle(index)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </SwiperSlide>
+              </>
+            ))}{" "}
+          not working
+        </Swiper>
       </div>
       <div className="bg-black  ">
         <ul className="flex flex-col  items-center w-full  px-4 lg:px-12 py-0 lg:py-20">
