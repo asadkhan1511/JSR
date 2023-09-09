@@ -76,8 +76,8 @@ const Rentals = () => {
   async function get() {
     try {
       const { data } = await axios.get("https://jsr-backend-x7rr.onrender.com/Banner/rentals");
-      console.log(data[0]);
-      setBanner(data[0]);
+      console.log("data[0]",data[0]);
+      setBanner(data.img);
     } catch (e) {
       console.log(e);
     }
@@ -199,13 +199,11 @@ const Rentals = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper hidden lg:flex "
         >
-          {Array.isArray(banner?.img) &&
-            banner.img.map((value, index) => (
               <>
-                <SwiperSlide key={index} className=" relative z-50">
+                <SwiperSlide className=" relative z-50">
                   <div className=" w-full ">
                     <img
-                      src={value}
+                      src={banner}
                       alt=""
                       className="h-[400px] lg:h-[500px] w-full object-cover"
                     />
@@ -218,7 +216,6 @@ const Rentals = () => {
                   </div>
                 </SwiperSlide>
               </>
-            ))}{" "}
           not working
         </Swiper>
       </div>
