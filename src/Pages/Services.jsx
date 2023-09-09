@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Service from "../Components/Service";
 import Navbar from "../Components/Navbar";
 import FooterNav from "../Components/FooterNav";
-import { BsTwitter } from "react-icons/bs";
+
 import { RiFileAddFill } from "react-icons/ri";
 import { Swiper, SwiperSlide } from "swiper/react";
 
