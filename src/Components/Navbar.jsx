@@ -113,11 +113,11 @@ const Navbar = ({ navColor, navBgColor, absolute, bar }) => {
                   RENTALS
                 </li>
               </Link>
-              <Link to="/metrics">
+              <a  href="https://accounts.google.com/InteractiveLogin/signinchooser?continue=https%3A%2F%2Fanalytics.google.com%2Fanalytics%2Fweb%2F%3F_gl%3D1*14ihwal*_ga*Nzc4NjI0NTU3LjE2OTQyNDI2MzM.*_ga_4BXXKZJZTZ*MTY5NDI0NTcwNC4yLjEuMTY5NDI0NTczMC4wLjAuMA..%26_ga%3D2.183720038.115316338.1694242633-778624557.1694242633%23%2Fp406191442%2Freports%2Fintelligenthome&followup=https%3A%2F%2Fanalytics.google.com%2Fanalytics%2Fweb%2F%3F_gl%3D1*14ihwal*_ga*Nzc4NjI0NTU3LjE2OTQyNDI2MzM.*_ga_4BXXKZJZTZ*MTY5NDI0NTcwNC4yLjEuMTY5NDI0NTczMC4wLjAuMA..%26_ga%3D2.183720038.115316338.1694242633-778624557.1694242633&passive=1209600&service=analytics&ifkv=AYZoVhetgRscwayHgHCEH7UJYQh07-Ajm-hX-xDwDgAuuz1UeFqTAtge6CKT0Z7mhY-uv3xgF4_bYg&theme=glif&flowName=GlifWebSignIn&flowEntry=ServiceLogin" target="_blank" >
                 <li className="hover:scale-125 hover:opacity-50 duration-200">
                   METRICS
                 </li>
-              </Link>
+              </a>
               <li>
               {isAuthenticated&&<button className="text-2xl font-2 bg-blue-800 text-white ps-1 pr-1 rounded-md hover:bg-black   " onClick={()=> logout()}>Logout</button>}
               </li>
