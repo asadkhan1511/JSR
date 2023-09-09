@@ -12,7 +12,7 @@ const AddBanner = () => {
     {
         try{
             const {data}=await axios.get(`https://jsr-backend-x7rr.onrender.com/Banner/${type}`)
-            setA(data[0]);
+            setA(data);
         }
         catch(e)
         {
@@ -28,16 +28,18 @@ const AddBanner = () => {
   const handleUploadedImage = (imageUrl) => {
      
       setImagesrc(imageUrl);
-    const updatedBannerImg = [...a.img];
-    updatedBannerImg.push(imageUrl);
-    setA({ ...a, img: updatedBannerImg });
+    // const updatedBannerImg = [...a.img];
+    // updatedBannerImg.push(imageUrl);
+    // setA({ ...a, img: updatedBannerImg });
   };
 
   const addService = async() => {
     // console.log(a);
     const apiURL = `https://jsr-backend-x7rr.onrender.com/Banner/${type}`;
     axios
-      .put(apiURL, a)
+      .put(apiURL, {
+        img: imagesrc
+      })
       .then(() => {
       navigate(`/${type}`);
       })
