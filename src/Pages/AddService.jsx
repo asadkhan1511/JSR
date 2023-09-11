@@ -168,7 +168,7 @@ const AddService = () => {
 
           <div className="mt-3 flex flex-col-2 justify-around ">
             <div>
-              <label htmlFor="Img" className="block text-base mb-2 text font-bold font-bold">
+              <label htmlFor="Img" className="block text-base mb-2 text font-bold">
                 UPLOAD IMAGE
               </label>
 
