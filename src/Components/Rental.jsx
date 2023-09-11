@@ -77,7 +77,7 @@ const Rental = () => {
         })}
 
 <>
-      <div className="flex justify-center items-center p-10 bg-indigo-400      " style={{fontFamily:"sans-serif"}}>
+      <div className=" text-black flex justify-center items-center p-10 bg-indigo-400      " style={{fontFamily:"sans-serif"}}>
         <div className="w-[80vw] p-6 shadow-lg bg-white rounded-md">
           <h1 className="text-3xl block text-center ">
           Add Rental Item
