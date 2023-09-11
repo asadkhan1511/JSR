@@ -157,9 +157,9 @@ const Member = () => {
       </div> */}
       <div className="bg-black">
         <ul className="flex flex-col  items-center w-full  px-4 lg:px-12 py-0 lg:py-20">
-          <li className=" lg:border-l-[2px] border-gray-100 opacity-10 h-full absolute z-1  left-4 lg:left-20"></li>
+          {/* <li className=" lg:border-l-[2px] border-gray-100 opacity-10 h-full absolute z-1  left-4 lg:left-20"></li>
           <li className="lg:border-l-[2px] border-gray-100 opacity-10 left-[50%] h-full absolute z-1"></li>
-          <li className="lg:border-l-[2px] border-gray-100 opacity-10 h-full absolute z-1 right-4 lg:right-20"></li>
+          <li className="lg:border-l-[2px] border-gray-100 opacity-10 h-full absolute z-1 right-4 lg:right-20"></li> */}
           <Team />
         </ul>
       </div>
