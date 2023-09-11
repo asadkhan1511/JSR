@@ -67,7 +67,11 @@ const Team = () => {
               className="w-[320px] md:w-[600px] lg:w-[430px] lg:h-[400px] xl:w-[650px] xl:h-[420px] object-contain"
               data-aos="fade-up"
             /> */}
-            <div className="w-[320px] md:w-[600px] lg:w-[430px] lg:h-[400px] xl:w-[650px] xl:h-[420px] object-contain"></div>
+            <img className="w-[320px] md:w-[600px] lg:w-[430px] lg:h-[400px] xl:w-[650px] xl:h-[420px] object-contain"
+              src="https://res.cloudinary.com/djb3n17c0/image/upload/v1694415722/B_rsmfqt.png"
+              alt="imgJSR"
+
+            ></img>
             <div className="px-0 lg:pl-16 lg:leading-7 float-right justify-start pt-0 lg:pt-5 leading-0 w-[320px] md:w-[600px]">
               <h1
                 className=" text-2xl lg:text-5xl pt-5 lg:pb-5"
