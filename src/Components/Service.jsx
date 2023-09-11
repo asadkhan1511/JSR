@@ -31,7 +31,7 @@ get();
     <>
       <div className="bg-black p-5 md:p-12 px-6 pt-5 h-full w-[100%] text-white ">
         <div
-          className="flex flex-col items-center lg:flex-row pb-10 lg:pb-40"
+          className="flex flex-col justify-center items-center lg:flex-row pb-10 lg:pb-40"
           data-aos="fade-up"
         >
           <img
@@ -85,7 +85,7 @@ get();
           </div>
         </div>
 
-        <div className="flex flex-col-reverse items-center lg:flex-row  pb-10 lg:pb-40">
+        <div className="flex flex-col-reverse justify-center items-center lg:flex-row  pb-10 lg:pb-40">
           <div className="px-0 lg:pr-4 lg:pl-5 lg:leading-7 pt-5 md:pt-8 lg:pt-16 leading-0 w-[320px] md:w-[600px] lg:w-[600px]">
             <h1
               className=" text-2xl lg:text-5xl  pt-5 lg:pb-5"
@@ -131,7 +131,7 @@ get();
         </div>
       </div>
       <div className="bg-black p-5 md:p-12 px-6 h-full w-[100%] text-white ">
-        <div className="flex flex-col items-center lg:flex-row pb-10 lg:pb-40">
+        <div className="flex flex-col justify-center items-center lg:flex-row pb-10 lg:pb-40">
           <img
             src={a[2]?.img}
             alt=""
@@ -176,7 +176,7 @@ get();
           </div>
         </div>
 
-        <div className="flex flex-col-reverse items-center lg:flex-row  pb-10 lg:pb-40">
+        <div className="flex flex-col-reverse justify-center items-center lg:flex-row  pb-10 lg:pb-40">
           <div className="px-0 lg:pr-4 lg:pl-5 lg:leading-7 pt-5 md:pt-8 lg:pt-16 leading-0 w-[320px] md:w-[600px] lg:w-[600px]">
             <h1
               className=" text-2xl lg:text-5xl  pt-5 lg:pb-5 "
@@ -222,7 +222,7 @@ get();
         </div>
       </div>
       <div className="bg-black p-5 md:p-12 px-6 h-full w-[100%] text-white ">
-        <div className="flex flex-col items-center lg:flex-row pb-10 lg:pb-40">
+        <div className="flex flex-col justify-center items-center lg:flex-row pb-10 lg:pb-40">
           <img
            src={a[4]?.img}
             alt=""
