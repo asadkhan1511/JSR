@@ -13,6 +13,7 @@ const Rental = () => {
     heading: "",
     content: ""
   });
+  const [refresh, setRefresh] = useState(false);
   async function get() {
     try {
       const { data } = await axios.get(
@@ -31,6 +32,7 @@ const Rental = () => {
       .delete(Deleteurl)
       .then(() => {
         // console.log(response.data);
+        setRefresh((prev)=>!prev);
       })
       .catch((error) => {
         console.log(error);
@@ -43,6 +45,7 @@ const Rental = () => {
     axios
       .post(apiURL, ri)
       .then(() => {
+        setRefresh((prev)=>!prev);
       })
       .catch((error) => {
         console.log(error);
@@ -52,7 +55,7 @@ const Rental = () => {
 
   useEffect(() => {
     get();
-  }, []);
+  }, [refresh]);
   return (
     <>
       <div className="bg-black p-5 md:p-12 px-6 h-full w-[100%] text-white ">
