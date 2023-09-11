@@ -28,7 +28,7 @@ const Rental = () => {
 
   const handleDelete = async (id) => {
     Deleteurl = `https://jsr-backend-x7rr.onrender.com/Rentals/${id}`;
-    axios
+    await axios
       .delete(Deleteurl)
       .then(() => {
         // console.log(response.data);
