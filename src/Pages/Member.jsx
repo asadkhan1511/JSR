@@ -106,7 +106,7 @@ const Member = () => {
           />
           <div className="flex justify-center relative top-[-15%] z-50 items-center">
             <h1 className="text-7xl text-white tracking-wider absolute top-44 lg:top-52">
-              Teams
+              Team
             </h1>
           </div>
         </div>
