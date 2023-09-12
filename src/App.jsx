@@ -31,6 +31,7 @@ function App() {
         <Route path="/Banner" element={<AddBanner />} />
         <Route path="/Banner/:type" element={<AddBanner />} />
         <Route path="/services/:id" element={<AddService />} />
+        <Route path="/BOD/:id" element={<AddBOD />} />
         <Route path="/member" element={<Member />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/rentals" element={<Rentals />} />
