@@ -14,6 +14,7 @@ import AddService from "./Pages/AddService";
 import AddBanner from "./Pages/AddBannner";
 import { useAuth0 } from "@auth0/auth0-react";
 import Login from './Pages/Login';
+import AddBOD from "./Pages/AddBOD";
 
 // import { AnimatePresence } from "framer-motion/dist/framer-motion";
 
