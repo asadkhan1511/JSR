@@ -112,22 +112,22 @@ const AddBOD = () => {
             </div>
           </div>
 
-          {showWarning && (
+          {/* {showWarning && (
             <span className="text-red-600">* All fields are necessary</span>
-          )}
+          )} */}
 
           <div className="mt-2">
               <button
                 className="w-full h-12 px-6 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
                 onClick={() => {
                     
-                        if(a.name != ""  && a.content != "" && a.img != "" )
+                        // if(a.name != ""  && a.content != "" && a.img != "" )
                        {addService();
                                            
                     }
           
-                    else 
-                    setShowWarning(true);
+                    // else 
+                    // setShowWarning(true);
                 }}
               >
                 Update
