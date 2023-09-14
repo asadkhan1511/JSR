@@ -78,7 +78,7 @@ const UpdateCard = () => {
             />
           </div>
 
-          {type == "R" ? <div className="mt-3">
+          {true ? <div className="mt-3">
             <label htmlFor="Producer" className="block text-base mb-2">
               Producer
             </label>
@@ -121,7 +121,7 @@ const UpdateCard = () => {
             />
           </div>
 
-          {type == "R" ? <div className="mt-3">
+          {true ? <div className="mt-3">
             <label htmlFor="#link" className="block text-base mb-2">
               Link
             </label>
@@ -151,18 +151,18 @@ const UpdateCard = () => {
             </div>
           </div>
 
-          {showWarning && (
+          {/* {showWarning && (
             <span className="text-red-600">* All fields are necessary</span>
-          )}
+          )} */}
 
           <div className="mt-2">
               <button
                 className="w-full h-12 px-6 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
                 onClick={() => {
-                    if(a.title != "" && a.director && a.dop != "" && a.img != "" && a.link != "" && a.producer != "")
+                    // if(a.title != "" && a.director && a.dop != "" && a.img != "" && a.link != "" && a.producer != "")
                     updateCard();
-                    else 
-                    setShowWarning(true);
+                    // else 
+                    // setShowWarning(true);
                 }}
               >
                 UPDATE
