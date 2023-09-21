@@ -15,6 +15,7 @@ import AddBanner from "./Pages/AddBannner";
 import { useAuth0 } from "@auth0/auth0-react";
 import Login from './Pages/Login';
 import AddBOD from "./Pages/AddBOD";
+import EditRentals from "./Pages/EditRentals";
 
 // import { AnimatePresence } from "framer-motion/dist/framer-motion";
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="/rentals" element={<Rentals />} />
         {/* <Route path="/metrics" element={<Metrics />} /> */}
         <Route path="/update/:id" element={<UpdateCard />} />
+        <Route path="/editRentals/:id" element={<EditRentals />} />
         <Route path="/add/:key" element={<AddCard />} /></>}
       </Routes>
       {/* </AnimatePresence> */}
