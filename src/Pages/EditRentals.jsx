@@ -44,7 +44,7 @@ const EditRentals = () => {
               type="text"
               id="Heading"
               value={a?.heading}
-              className="border w-full text-base px-2 py-1 focus:outline-none focus-ring-0 focus:border-gray-400"
+              className="border font2 w-full text-base px-2 py-1 focus:outline-none focus-ring-0 focus:border-gray-400"
               placeholder="Enter Title"
               onChange={(e) => setA({ ...a, heading: e.target.value })}
             />
@@ -58,7 +58,7 @@ const EditRentals = () => {
               type="text"
               id="Content"
               value={a?.content}
-              className="border w-full text-base px-2 py-1 focus:outline-none focus-ring-0 focus:border-gray-400"
+              className="border font2 w-full text-base px-2 py-1 focus:outline-none focus-ring-0 focus:border-gray-400"
               placeholder="Enter #Tag1 htmlFor Superhero"
               onChange={(e) => setA({ ...a, content: e.target.value })}
             />
