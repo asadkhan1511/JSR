@@ -79,7 +79,7 @@ const Rental = () => {
                   }}
                 />
                 <Link to={`/editRentals/${item?._id}`}>
-                  <TbEdit className="text-blue-500 w-10 h-10  mr-9 scale-100 hover:scale-125" />
+                  <TbEdit className="text-blue-500 w-10 h-10  ml-9 scale-100 hover:scale-125" />
                 </Link>
               </h3>
               <p className="font2 opacity-40 pb-10">{item?.content}</p>
