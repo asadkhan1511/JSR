@@ -3,6 +3,9 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 import { RiDeleteBin6Fill } from "react-icons/ri";
+import {TbEdit} from "react-icons/tb";
+import { Link } from "react-router-dom";
+
 Aos.init({
   duration: 1200,
 });
