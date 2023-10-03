@@ -11,8 +11,8 @@ class CloudinaryUploadWidget extends Component {
 
   componentDidMount() 
   {
-    const cloudName = "djb3n17c0"; // replace with your own cloud name
-    const uploadPreset = "re3uxwy2"; // replace with your own upload preset
+    const cloudName = "dsea9eyps"; // replace with your own cloud name
+    const uploadPreset = "omnj4mzn"; // replace with your own upload preset
 
     // Remove the comments from the code below to add
     // additional functionality.
