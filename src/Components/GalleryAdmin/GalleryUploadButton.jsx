@@ -6,8 +6,8 @@ const GalleryUploadButton = ({ oldURL, onImageUpload }) => {
   const [galleryButtonRef, setGalleryButtonRef] = useState(null);
 
   useEffect(() => {
-    const cloudName = "djb3n17c0"; // replace with your own cloud name
-    const uploadPreset = "re3uxwy2"; // replace with your own upload preset
+    const cloudName = "dsea9eyps"; // replace with your own cloud name
+    const uploadPreset = "omnj4mzn"; // replace with your own upload preset
 
     const myWidget = window.cloudinary.createUploadWidget(
       {
