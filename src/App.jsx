@@ -28,7 +28,7 @@ function App() {
 
       {/* <AnimatePresence> */}
        <Routes location={location} key={location.pathname}>
-       {!isAuthenticated?<Route path="*" element={<Login/>} /> :<><Route path="/" element={<Home />} />
+       {isAuthenticated?<Route path="*" element={<Login/>} /> :<><Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/Banner" element={<AddBanner />} />
         <Route path="/Banner/:type" element={<AddBanner />} />

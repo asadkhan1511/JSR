@@ -6,25 +6,7 @@ import { Link } from "react-router-dom";
 
 const Card = (data) => {
 
-  const DeleteCard = (id) => {
-    let Deleteurl;
-    // console.log('h')
-    // console.log(type)
-    if(data.type=="R"){
-      Deleteurl = `https://jsr-backend-x7rr.onrender.com/RProject/${id}`;
-    }else{
-      Deleteurl = `https://jsr-backend-x7rr.onrender.com/Upcoming/${id}`;
-    }
-     
-    axios
-      .delete(Deleteurl)
-      .then(() => {
-        // console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+ 
   
   return (
     <>
@@ -57,14 +39,8 @@ const Card = (data) => {
               </li>
             ) : null}
             <div className="flex flex-row justify-between">
-            <RiDeleteBin6Fill className="text-red-500 w-10 h-10  ml-9 scale-100 hover:scale-125 cursor-pointer" onClick={() => {
-                DeleteCard(data?.data?._id);
-              }}/>
-              <Link
-              to={`/update/${data?.data?._id}`}
-            >
-              <TbEdit className="text-blue-500 w-10 h-10  mr-9 scale-100 hover:scale-125" />
-            </Link>
+           
+             
             </div>
           </div>
         </p>

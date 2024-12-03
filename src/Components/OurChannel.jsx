@@ -28,13 +28,11 @@ const OurChannel = () => {
   async function handleupdate() {
     try {
       settoggle(!toggle);
-      console.log(para);
       let data1={para:para}
       const { data } = await axios.put(
         "https://jsr-backend-x7rr.onrender.com/OurChannel/",
         {para:para}
       );
-      console.log(data);
     } catch (e) {
       console.log(e);
     }
@@ -105,7 +103,7 @@ const OurChannel = () => {
               target="_blank"
             >
               <img
-                src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691128688/RECORDS-REGIONAL_h1dgav.png  "
+                src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691128688/RECORDS-REGIONAL_h1dgav.png"
                 alt="JSR Record Label"
                 className="w-24 h-24 lg:w-40 lg:h-40 text-red-700"
               />
