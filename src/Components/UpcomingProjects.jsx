@@ -34,7 +34,7 @@ const UpcomingProjects = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
-
+console.log(array);
   const DeleteCard = (item) => {
     let Deleteurl;
 
@@ -114,7 +114,7 @@ const UpcomingProjects = () => {
                     <Card data={item} type="U" />
                     <div className="flex gap-5 items-center">
                       {" "}
-                      <div className=" flex gap-5 items-center">
+                      <div className=" flex gap-5 items-center mt-5">
                         {" "}
                         <RiDeleteBin6Fill
                           className="text-red-500 w-10 h-10  ml-9 scale-100 hover:scale-125 cursor-pointer"

@@ -10,6 +10,8 @@ const UpdateCard = () => {
         producer:"",
         director:"",
         dop:"",
+        singer:"",
+        musicproducer:"",
         img:"",
         link:""
     });
@@ -118,6 +120,32 @@ const UpdateCard = () => {
               className="border w-full text-base px-2 py-1 focus:outline-none focus-ring-0 focus:border-gray-400"
               placeholder="Enter DOP Name"
               onChange={(e) => setA({ ...a, dop: e.target.value })}
+            />
+          </div>
+          <div className="mt-3">
+            <label htmlFor="#Singer" className="block text-base mb-2">
+              Singer
+            </label>
+            <input
+              type="text"
+              id="#Singer"
+              value={a?.singer}
+              className="border w-full text-base px-2 py-1 focus:outline-none focus-ring-0 focus:border-gray-400"
+              placeholder="Enter Singer Name"
+              onChange={(e) => setA({ ...a, singer: e.target.value })}
+            />
+          </div>
+          <div className="mt-3">
+            <label htmlFor="#Music Producer" className="block text-base mb-2">
+              Music Producer
+            </label>
+            <input
+              type="text"
+              id="#MusicProducer"
+              value={a?.musicproducer}
+              className="border w-full text-base px-2 py-1 focus:outline-none focus-ring-0 focus:border-gray-400"
+              placeholder="Enter Music Producer Name"
+              onChange={(e) => setA({ ...a, musicproducer: e.target.value })}
             />
           </div>
 

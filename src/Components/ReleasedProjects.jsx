@@ -50,7 +50,9 @@ const ReleasedProjects = () => {
         console.log(error);
       });
   };
+  console.log(array);
   return (
+    
     <>
       <div>
         <div className="text-center pt-20 lg:pt-28 text-4xl lg:text-6xl tracking-[2px]  lg:tracking-[6px] pb-10 lg:pb-20 ">
@@ -109,7 +111,7 @@ const ReleasedProjects = () => {
                   <div className="">
                     {" "}
                     <Card data={item} type="R" />
-                <div className=" flex gap-5 items-center">    <RiDeleteBin6Fill
+                <div className=" flex gap-5 items-center mt-5">    <RiDeleteBin6Fill
                       className="text-red-500 w-10 h-10  ml-9 scale-100 hover:scale-125 cursor-pointer"
                       onClick={() => {
                         DeleteCard(item);
