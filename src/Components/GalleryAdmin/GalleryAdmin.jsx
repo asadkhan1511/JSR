@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import GalleryUploadButton from "./GalleryUploadButton";
 import axios from "axios";
+import { BACKEND_URL } from "../../../config";
 
 const GalleryAdmin = () => {
   const [gallery, setGallery] = useState(null);
 
   const updateImg = (key, imageUrl) => {
-    const apiURL = `https://jsr-backend-x7rr.onrender.com/Gallery/${key}`;
+    const apiURL = `${BACKEND_URL}/Gallery/${key}`;
 
     const postData = { [key]: imageUrl };
 
@@ -22,9 +23,7 @@ const GalleryAdmin = () => {
 
   useEffect(() => {
     const fetchGallery = async () => {
-      const response = await fetch(
-        "https://jsr-backend-x7rr.onrender.com/Gallery"
-      );
+      const response = await fetch(`${BACKEND_URL}/Gallery`);
       const data = await response.json();
       setGallery(data);
     };
@@ -34,8 +33,10 @@ const GalleryAdmin = () => {
 
   return (
     <>
-      <hr className="w-auto mx-auto mt-10 h-1 bg-black"/>
-      <span className="flex text-8xl justify-center mt-20 font1">UPDATE GALLERY</span>
+      <hr className="w-auto mx-auto mt-10 h-1 bg-black" />
+      <span className="flex text-8xl justify-center mt-20 font1">
+        UPDATE GALLERY
+      </span>
       <div
         className="grid grid-cols-1 
         lg:grid-cols-4 lg:gap-3 

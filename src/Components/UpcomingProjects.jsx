@@ -17,15 +17,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { TbEdit } from "react-icons/tb";
 import { RiDeleteBin6Fill } from "react-icons/ri";
+import { BACKEND_URL } from "../../config";
 
 const UpcomingProjects = () => {
   const [array, setArray] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchProducts = async () => {
-    const response = await fetch(
-      "https://jsr-backend-x7rr.onrender.com/Upcoming"
-    );
+    const response = await fetch(`${BACKEND_URL}/Upcoming`);
     const data = await response.json();
     console.log(data, "=>>>");
     setLoading(false);
@@ -34,11 +33,11 @@ const UpcomingProjects = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
-console.log(array);
+  console.log(array);
   const DeleteCard = (item) => {
     let Deleteurl;
 
-    Deleteurl = `https://jsr-backend-x7rr.onrender.com/Upcoming/${item._id}`;
+    Deleteurl = `${BACKEND_URL}/Upcoming/${item._id}`;
 
     axios
       .delete(Deleteurl)

@@ -3,8 +3,9 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 import { RiDeleteBin6Fill } from "react-icons/ri";
-import {TbEdit} from "react-icons/tb";
+import { TbEdit } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { BACKEND_URL } from "../../config";
 
 Aos.init({
   duration: 1200,
@@ -19,9 +20,7 @@ const Rental = () => {
   const [refresh, setRefresh] = useState(false);
   async function get() {
     try {
-      const { data } = await axios.get(
-        "https://jsr-backend-x7rr.onrender.com/Rentals"
-      );
+      const { data } = await axios.get(`${BACKEND_URL}/Rentals`);
       // console.log("data[0]",data[0]);
       setRentals(data);
     } catch (e) {
@@ -30,7 +29,7 @@ const Rental = () => {
   }
 
   const handleDelete = async (id) => {
-    const Deleteurl = `https://jsr-backend-x7rr.onrender.com/Rentals/${id}`;
+    const Deleteurl = `${BACKEND_URL}/Rentals/${id}`;
     await axios
       .delete(Deleteurl)
       .then(() => {
@@ -44,7 +43,7 @@ const Rental = () => {
 
   const addRi = async () => {
     // console.log(a);
-    const apiURL = `https://jsr-backend-x7rr.onrender.com/Rentals`;
+    const apiURL = `${BACKEND_URL}/Rentals`;
     axios
       .post(apiURL, ri)
       .then(() => {

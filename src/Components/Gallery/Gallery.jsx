@@ -2,16 +2,14 @@ import React, { useEffect, useState } from "react";
 import "../Gallery/Gallery.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-
+import { BACKEND_URL } from "../../../config";
 const Gallery = (props) => {
   const [gallery, setGallery] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch(
-        "https://jsr-backend-x7rr.onrender.com/Gallery"
-      );
+      const response = await fetch(`${BACKEND_URL}/Gallery`);
       const data = await response.json();
       console.log(data, " gallery =>>>");
       setGallery(data);

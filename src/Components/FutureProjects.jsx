@@ -12,6 +12,7 @@ import { Pagination } from "swiper";
 import SkeletonCard from "./SkeletonCard";
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import { BACKEND_URL } from "../../config";
 
 const FutureProjects = () => {
   const [array, setArray] = useState([]);
@@ -19,9 +20,7 @@ const FutureProjects = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch(
-        "https://jsr-backend-x7rr.onrender.com/Future"
-      );
+      const response = await fetch(`${BACKEND_URL}/Future`);
       const data = await response.json();
       console.log(data, "=>>>");
       setLoading(false);

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BsTwitter } from "react-icons/bs";
 import axios from "axios";
 import { Warning } from "postcss";
+import { BACKEND_URL } from "../../config";
 
 const WorkWithUs = () => {
   const [message, setMessage] = useState("");
@@ -13,7 +14,7 @@ const WorkWithUs = () => {
 
   const postMessage = async () => {
     try {
-      const apiURL = "https://jsr-backend-x7rr.onrender.com/Query/";
+      const apiURL = `${BACKEND_URL}/Query/`;
 
       const postData = {
         message,
@@ -128,15 +129,15 @@ const WorkWithUs = () => {
           <a
             onClick={handleSubmit}
             href="#_"
-            class="relative inline-block text-lg group"
+            className="relative inline-block text-lg group"
           >
-            <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium w-[300px] lg:w-[560px] leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900  group-hover:text-white">
-              <span class="absolute inset-0  w-full h-full px-5 py-3  bg-gray-50"></span>
-              <span class="absolute left-0 w-[600px] h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-black group-hover:-rotate-180 ease"></span>
-              <span class="relative flex justify-center">Send</span>
+            <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium w-[300px] lg:w-[560px] leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900  group-hover:text-white">
+              <span className="absolute inset-0  w-full h-full px-5 py-3  bg-gray-50"></span>
+              <span className="absolute left-0 w-[600px] h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-black group-hover:-rotate-180 ease"></span>
+              <span className="relative flex justify-center">Send</span>
             </span>
             <span
-              class="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900  group-hover:mb-0 group-hover:mr-0"
+              className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900  group-hover:mb-0 group-hover:mr-0"
               data-rounded="rounded-lg"
             ></span>
           </a>

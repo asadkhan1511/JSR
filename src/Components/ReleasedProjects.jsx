@@ -18,15 +18,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { TbEdit } from "react-icons/tb";
+import { BACKEND_URL } from "../../config";
 
 const ReleasedProjects = () => {
   const [array, setArray] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchProducts = async () => {
-    const response = await fetch(
-      "https://jsr-backend-x7rr.onrender.com/RProject"
-    );
+    const response = await fetch(`${BACKEND_URL}/RProject`);
     const data = await response.json();
     setLoading(false);
     setArray(data);
@@ -39,7 +38,7 @@ const ReleasedProjects = () => {
     let Deleteurl;
     console.log(item);
 
-    Deleteurl = `https://jsr-backend-x7rr.onrender.com/RProject/${item._id}`;
+    Deleteurl = `${BACKEND_URL}/RProject/${item._id}`;
 
     axios
       .delete(Deleteurl)
@@ -52,7 +51,6 @@ const ReleasedProjects = () => {
   };
   console.log(array);
   return (
-    
     <>
       <div>
         <div className="text-center pt-20 lg:pt-28 text-4xl lg:text-6xl tracking-[2px]  lg:tracking-[6px] pb-10 lg:pb-20 ">
@@ -111,15 +109,18 @@ const ReleasedProjects = () => {
                   <div className="">
                     {" "}
                     <Card data={item} type="R" />
-                <div className=" flex gap-5 items-center mt-5">    <RiDeleteBin6Fill
-                      className="text-red-500 w-10 h-10  ml-9 scale-100 hover:scale-125 cursor-pointer"
-                      onClick={() => {
-                        DeleteCard(item);
-                      }}
-                    />
-                    <Link to={`/update/${item?._id}`}>
-                      <TbEdit className="text-blue-500 w-10 h-10  mr-9 scale-100 hover:scale-125" />
-                    </Link> </div>
+                    <div className=" flex gap-5 items-center mt-5">
+                      {" "}
+                      <RiDeleteBin6Fill
+                        className="text-red-500 w-10 h-10  ml-9 scale-100 hover:scale-125 cursor-pointer"
+                        onClick={() => {
+                          DeleteCard(item);
+                        }}
+                      />
+                      <Link to={`/update/${item?._id}`}>
+                        <TbEdit className="text-blue-500 w-10 h-10  mr-9 scale-100 hover:scale-125" />
+                      </Link>{" "}
+                    </div>
                   </div>
                 </SwiperSlide>
               );

@@ -1,15 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { RiFileAddFill } from "react-icons/ri";
+import { BACKEND_URL } from "../../config";
 
 const OurChannel = () => {
   var [para, setPara] = useState([]);
   const [toggle, settoggle] = useState(true);
   async function get() {
     try {
-      const { data } = await axios.get(
-        "https://jsr-backend-x7rr.onrender.com/OurChannel"
-      );
+      const { data } = await axios.get(`${BACKEND_URL}/OurChannel`);
       console.log(data.para);
       setPara(data.para);
     } catch (e) {
@@ -28,11 +27,10 @@ const OurChannel = () => {
   async function handleupdate() {
     try {
       settoggle(!toggle);
-      let data1={para:para}
-      const { data } = await axios.put(
-        "https://jsr-backend-x7rr.onrender.com/OurChannel/",
-        {para:para}
-      );
+      let data1 = { para: para };
+      const { data } = await axios.put(`${BACKEND_URL}/OurChannel/`, {
+        para: para,
+      });
     } catch (e) {
       console.log(e);
     }
@@ -43,7 +41,7 @@ const OurChannel = () => {
       <h1 className="text-5xl md:text-5xl lg:text-7xl  tracking-[2px]  lg:tracking-[6px]  py-10">
         OUR CHANNELS
         <RiFileAddFill
-          onClick={()=>settoggle(false)}
+          onClick={() => settoggle(false)}
           className="inline-block"
           color="blue"
         />
@@ -56,8 +54,7 @@ const OurChannel = () => {
         shows.
       </p> */}
       <textarea
-      rows={3}
-
+        rows={3}
         type="text"
         readOnly={toggle}
         className=" font2 py-2 text-center  lg:py-1 lg:mt-0  w-[320px] md:w-[550px]
@@ -80,6 +77,7 @@ const OurChannel = () => {
             <a
               href="https://www.youtube.com/@jsrproductionhouse9127"
               target="_blank"
+              rel="noreferrer"
             >
               <img
                 src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691128687/PRODUCTION-HOUSE_warbtn.png"
@@ -89,7 +87,11 @@ const OurChannel = () => {
             </a>
           </div>
           <div className="hover:scale-125 duration-200">
-            <a href="https://www.youtube.com/@JSRRECORDLABEL" target="_blank">
+            <a
+              href="https://www.youtube.com/@JSRRECORDLABEL"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691128688/RECORD-LABEL_gaq31x.png "
                 alt="JSR Record Label"
@@ -101,6 +103,7 @@ const OurChannel = () => {
             <a
               href="https://www.youtube.com/@jsrrecordsregional"
               target="_blank"
+              rel="noreferrer"
             >
               <img
                 src="https://res.cloudinary.com/djb3n17c0/image/upload/v1691128688/RECORDS-REGIONAL_h1dgav.png"

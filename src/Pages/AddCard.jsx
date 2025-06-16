@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import CloudinaryUploadWidget from "../Components/CloudinaryUploadWidget";
+import { BACKEND_URL } from "../../config";
 
 const AddCard = () => {
   const { key } = useParams();
@@ -27,8 +28,8 @@ const AddCard = () => {
     console.log(a);
     const apiURL =
       key == "release"
-        ? `https://jsr-backend-x7rr.onrender.com/RProject/`
-        : `https://jsr-backend-x7rr.onrender.com/Upcoming/`;
+        ? `${BACKEND_URL}/RProject/`
+        : `${BACKEND_URL}/Upcoming/`;
     axios
       .post(apiURL, a)
       .then(() => {

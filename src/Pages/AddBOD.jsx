@@ -2,46 +2,43 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import CloudinaryUploadWidget from "../Components/CloudinaryUploadWidget";
+import { BACKEND_URL } from "../../config";
 
 const AddBOD = () => {
-    const {id}=useParams();
-    const [a,setA]=useState({
-        name:"",
-        desig:"",
-        content:"",
-        img:"",
-    });
+  const { id } = useParams();
+  const [a, setA] = useState({
+    name: "",
+    desig: "",
+    content: "",
+    img: "",
+  });
 
-    async function get()
-    {
-        try{
-
-            const {data}=await axios.get(`https://jsr-backend-x7rr.onrender.com/Bod/${id}`)
-            setA(data);
-        }
-        catch(e)
-        {
-            console.log(e);
-        }
+  async function get() {
+    try {
+      const { data } = await axios.get(`${BACKEND_URL}/Bod/${id}`);
+      setA(data);
+    } catch (e) {
+      console.log(e);
     }
-    useEffect(()=>{
- get();
-    },[])
+  }
+  useEffect(() => {
+    get();
+  }, []);
 
-    const navigate=useNavigate();
+  const navigate = useNavigate();
   const [showWarning, setShowWarning] = useState(false);
 
   const handleUploadedImage = (imageUrl) => {
-    setA({ ...a, img: imageUrl })
+    setA({ ...a, img: imageUrl });
   };
 
-  const addService = async() => {
+  const addService = async () => {
     // console.log(a);
-    const apiURL = `https://jsr-backend-x7rr.onrender.com/Bod/${id}`;
+    const apiURL = `${BACKEND_URL}/Bod/${id}`;
     axios
       .put(apiURL, a)
       .then(() => {
-      navigate('/member');
+        navigate("/member");
         // console.log(response.data);
       })
       .catch((error) => {
@@ -50,11 +47,12 @@ const AddBOD = () => {
   };
   return (
     <>
-      <div className="flex justify-center items-center p-10 bg-indigo-400      " style={{fontFamily:"sans-serif"}}>
+      <div
+        className="flex justify-center items-center p-10 bg-indigo-400      "
+        style={{ fontFamily: "sans-serif" }}
+      >
         <div className="w-[80vw] p-6 shadow-lg bg-white rounded-md">
-          <h1 className="text-3xl block text-center ">
-          Update Member
-          </h1>
+          <h1 className="text-3xl block text-center ">Update Member</h1>
           <hr className="mt-3" />
           <div className="mt-3">
             <label htmlFor="Title" className="block text-base mb-2 font-bold ">
@@ -65,25 +63,24 @@ const AddBOD = () => {
               id="Title"
               value={a?.name}
               className="border w-full text-base px-2 py-1 focus:outline-none focus-ring-0 focus:border-gray-400"
-            //   placeholder="Enter Title"
+              //   placeholder="Enter Title"
               onChange={(e) => setA({ ...a, name: e.target.value })}
             />
           </div>
 
-            <label htmlFor="Producer" className="block text-base mb-2 font-bold">
-              Designation
-            </label>
-            <input
-              type="text"
-              id="producer"
-              value={a?.desig}
-              className="border w-full text-base px-2 py-1 focus:outline-none focus-ring-0 focus:border-gray-400"
+          <label htmlFor="Producer" className="block text-base mb-2 font-bold">
+            Designation
+          </label>
+          <input
+            type="text"
+            id="producer"
+            value={a?.desig}
+            className="border w-full text-base px-2 py-1 focus:outline-none focus-ring-0 focus:border-gray-400"
             //   placeholder=""
-              onChange={(e) => setA({ ...a, desig: e.target.value })}
-            />
-        
+            onChange={(e) => setA({ ...a, desig: e.target.value })}
+          />
 
-        <div className="mt-3">
+          <div className="mt-3">
             <label htmlFor="Title1" className="block text-base mb-2 font-bold">
               Content
             </label>
@@ -92,14 +89,17 @@ const AddBOD = () => {
               id="Title1"
               value={a?.content}
               className="border w-full text-base px-2 py-1 focus:outline-none focus-ring-0 focus:border-gray-400"
-            //   placeholder="Enter Title"
+              //   placeholder="Enter Title"
               onChange={(e) => setA({ ...a, content: e.target.value })}
             />
           </div>
 
           <div className="mt-3 flex flex-col-2 justify-around ">
             <div>
-              <label htmlFor="Img" className="block text-base mb-2 text font-bold">
+              <label
+                htmlFor="Img"
+                className="block text-base mb-2 text font-bold"
+              >
                 UPLOAD IMAGE
               </label>
 
@@ -107,8 +107,8 @@ const AddBOD = () => {
                 <CloudinaryUploadWidget onImageUpload={handleUploadedImage} />
               </div>
             </div>
-            <div className="w-20 h-20" >
-              <img src={a?.img}   className="w-20 h-20" alt="" />
+            <div className="w-20 h-20">
+              <img src={a?.img} className="w-20 h-20" alt="" />
             </div>
           </div>
 
@@ -117,22 +117,20 @@ const AddBOD = () => {
           )} */}
 
           <div className="mt-2">
-              <button
-                className="w-full h-12 px-6 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
-                onClick={() => {
-                    
-                        // if(a.name != ""  && a.content != "" && a.img != "" )
-                       {addService();
-                                           
-                    }
-          
-                    // else 
-                    // setShowWarning(true);
-                }}
-              >
-                Update
-              </button>
-            
+            <button
+              className="w-full h-12 px-6 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+              onClick={() => {
+                // if(a.name != ""  && a.content != "" && a.img != "" )
+                {
+                  addService();
+                }
+
+                // else
+                // setShowWarning(true);
+              }}
+            >
+              Update
+            </button>
           </div>
         </div>
       </div>
@@ -140,4 +138,4 @@ const AddBOD = () => {
   );
 };
 
-export default AddBOD
+export default AddBOD;
