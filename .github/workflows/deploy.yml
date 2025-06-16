@@ -1,0 +1,44 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Node and Build
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Copy dist to EC2 temp directory
+        uses: appleboy/scp-action@v0.1.6
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY_JSR }}
+          source: "dist/*"
+          target: "/home/ec2-user/jsr-admin-deploy-temp"
+
+      - name: Move to /var/www/jsr-admin-main with sudo
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY_JSR }}
+          script: |
+            sudo mkdir -p /var/www/jsr-admin-main
+            sudo cp -r /home/ec2-user/jsr-admin-deploy-temp/* /var/www/jsr-admin-main/
+            sudo chown -R root:root /var/www/jsr-admin-main
+            sudo chmod -R o+rX /var/www/jsr-admin-main
+            rm -rf /home/ec2-user/jsr-admin-deploy-temp
