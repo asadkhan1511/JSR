@@ -27,20 +27,21 @@ function App() {
     <>
 
       {/* <AnimatePresence> */}
-       <Routes location={location} key={location.pathname}>
-       {isAuthenticated?<Route path="*" element={<Login/>} /> :<><Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/Banner" element={<AddBanner />} />
-        <Route path="/Banner/:type" element={<AddBanner />} />
-        <Route path="/services/:id" element={<AddService />} />
-        <Route path="/BOD/:id" element={<AddBOD />} />
-        <Route path="/member" element={<Member />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/rentals" element={<Rentals />} />
-        {/* <Route path="/metrics" element={<Metrics />} /> */}
-        <Route path="/update/:id" element={<UpdateCard />} />
-        <Route path="/editRentals/:id" element={<EditRentals />} />
-        <Route path="/add/:key" element={<AddCard />} /></>}
+      <Routes location={location} key={location.pathname}>
+        {isAuthenticated ? <Route path="*" element={<Login />} /> : <><Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/Banner" element={<AddBanner />} />
+          <Route path="/Banner/:type" element={<AddBanner />} />
+          <Route path="/services/:id" element={<AddService />} />
+          <Route path="/BOD/:id" element={<AddBOD />} />
+          <Route path="/member" element={<Member />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/rentals" element={<Rentals />} />
+          {/* <Route path="/metrics" element={<Metrics />} /> */}
+          <Route path="/update/:id" element={<UpdateCard />} />
+          <Route path="/editRentals/:id" element={<EditRentals />} />
+          <Route path="/add/:key" element={<AddCard />} /></>}
       </Routes>
       {/* </AnimatePresence> */}
     </>
